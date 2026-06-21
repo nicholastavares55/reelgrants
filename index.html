@@ -76,7 +76,7 @@
     padding:8px 16px;border-radius:999px;margin-bottom:26px}
   .laurel .live{width:7px;height:7px;border-radius:50%;background:var(--open);box-shadow:0 0 0 0 rgba(121,231,170,.6);animation:pulse 2s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(121,231,170,.55)}70%{box-shadow:0 0 0 9px rgba(121,231,170,0)}100%{box-shadow:0 0 0 0 rgba(121,231,170,0)}}
-  .hero h1{font-size:clamp(40px,7.4vw,78px);margin-bottom:22px}
+  .hero h1{font-size:clamp(33px,7.4vw,78px);margin-bottom:22px}
   .hero h1 em{font-style:italic;font-weight:500;color:var(--gold)}
   .hero p.sub{font-size:clamp(16px,2.2vw,20px);color:var(--muted);max-width:600px;margin:0 auto 30px;line-height:1.5}
 
@@ -187,6 +187,13 @@
     .hero{padding:34px 0 30px}
     .row .idx{display:none}
     section.block{padding:60px 0}
+  }
+  @media(max-width:560px){
+    .capture{flex-direction:column}
+    .capture input,.capture select,.capture button{min-width:0;width:100%;flex:none}
+    .row{gap:10px;padding:14px 16px}
+    .row .right .amt{font-size:12.5px}
+    .prog-head{padding:14px 16px}.filters{padding:4px 16px 14px}
   }
 </style>
 </head>
