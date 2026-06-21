@@ -502,6 +502,86 @@
       "eligibility": "first-time feature documentary makers",
       "status": "closed-recurring",
       "url": "https://documentary.org/event/garrett-scott-documentary-development-grant"
+    },
+    {
+      "name": "Media Projects (Production & Development)",
+      "funder": "National Endowment for the Humanities (NEH)",
+      "category": "Documentary",
+      "award_amount": "up to $700,000 (production); up to $75,000 (development)",
+      "deadline": "2026-06-25",
+      "eligibility": "US nonprofits, govt agencies, tribal govts, universities (independents must partner w/ an eligible org); humanities-grounded docs",
+      "status": "open",
+      "url": "https://www.neh.gov/program/media-projects"
+    },
+    {
+      "name": "Catapult Development Grant",
+      "funder": "Catapult Film Fund",
+      "category": "Documentary",
+      "award_amount": "$5,000–$25,000",
+      "deadline": "Apr (annual; Step 1 opens ~late March)",
+      "eligibility": "Documentary feature or short in development; worldwide",
+      "status": "closed-recurring",
+      "url": "https://catapultfilmfund.org/how-to-apply/development/"
+    },
+    {
+      "name": "Filmmaking Grant",
+      "funder": "Southern Documentary Fund",
+      "category": "Documentary",
+      "award_amount": "$15,000 (up to ~7 grants)",
+      "deadline": "2026-08-15",
+      "eligibility": "Directors who reside or have deep roots in the US South; nonfiction in production",
+      "status": "open",
+      "url": "https://southerndocumentaryfund.org/programs/filmmaking-grants/"
+    },
+    {
+      "name": "IDFA Bertha Fund (IBF Classic)",
+      "funder": "IDFA Bertha Fund",
+      "category": "Documentary",
+      "award_amount": "up to €7,500 (development); up to €25,000 (production/post)",
+      "deadline": "Feb (annual; IBF Europe round ~Apr)",
+      "eligibility": "Independent author-driven docs from Africa, Asia, Eastern Europe, Latin America, Caribbean, Oceania",
+      "status": "closed-recurring",
+      "url": "https://professionals.idfa.nl/training-funding/funding/ibf-classic/"
+    },
+    {
+      "name": "Open Call (Co-Production)",
+      "funder": "ITVS (Independent Television Service)",
+      "category": "Documentary",
+      "award_amount": "up to $400,000 co-production investment",
+      "deadline": "Jan & Aug (biannual)",
+      "eligibility": "US citizens/legal residents; nonfiction 10–90 min with production underway (work-in-progress required)",
+      "status": "closed-recurring",
+      "url": "https://itvs.org/funds/open-call/"
+    },
+    {
+      "name": "BPM Open Call / PitchBLACK",
+      "funder": "Black Public Media",
+      "category": "Documentary",
+      "award_amount": "up to $150,000 (production)",
+      "deadline": "paused for 2026 (CPB defunding) — confirm next cycle",
+      "eligibility": "Projects reflecting the Black experience; documentary & immersive media",
+      "status": "verify",
+      "url": "https://blackpublicmedia.org/for-media-makers/bpm-open-call/"
+    },
+    {
+      "name": "Commitment Grants & Emerging Filmmaker Fellowship",
+      "funder": "Mountainfilm",
+      "category": "Documentary",
+      "award_amount": "$1,000–$5,000 (Fellowship $2,000 + Telluride trip)",
+      "deadline": "2026-07-16 (opens Jul 1)",
+      "eligibility": "Docs in production/post on adventure, activism, social justice, culture, environment",
+      "status": "opening soon",
+      "url": "https://www.mountainfilm.org/mountainfilm-initiatives/commitment-grants/"
+    },
+    {
+      "name": "JustFilms",
+      "funder": "Ford Foundation",
+      "category": "Documentary",
+      "award_amount": "$25,000–$100,000",
+      "deadline": "Apr (annual ~4-week open call)",
+      "eligibility": "Feature docs (50+ min) with filmmaker creative control; social-justice focus",
+      "status": "closed-recurring",
+      "url": "https://www.fordfoundation.org/work/our-grants/justfilms/justfilms-application/"
     }
   ]
 }

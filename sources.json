@@ -593,6 +593,102 @@
         "deadline": "annual",
         "status": "closed-recurring"
       }
+    },
+    {
+      "name": "Media Projects (Production & Development)",
+      "funder": "National Endowment for the Humanities (NEH)",
+      "category": "Documentary",
+      "url": "https://www.neh.gov/program/media-projects",
+      "check": "daily",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "2026-06-25",
+        "status": "open"
+      }
+    },
+    {
+      "name": "Catapult Development Grant",
+      "funder": "Catapult Film Fund",
+      "category": "Documentary",
+      "url": "https://catapultfilmfund.org/how-to-apply/development/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "Apr (annual; Step 1 opens ~late March)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Filmmaking Grant",
+      "funder": "Southern Documentary Fund",
+      "category": "Documentary",
+      "url": "https://southerndocumentaryfund.org/programs/filmmaking-grants/",
+      "check": "daily",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "2026-08-15",
+        "status": "open"
+      }
+    },
+    {
+      "name": "IDFA Bertha Fund (IBF Classic)",
+      "funder": "IDFA Bertha Fund",
+      "category": "Documentary",
+      "url": "https://professionals.idfa.nl/training-funding/funding/ibf-classic/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "Feb (annual; IBF Europe round ~Apr)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Open Call (Co-Production)",
+      "funder": "ITVS (Independent Television Service)",
+      "category": "Documentary",
+      "url": "https://itvs.org/funds/open-call/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "Jan & Aug (biannual)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "BPM Open Call / PitchBLACK",
+      "funder": "Black Public Media",
+      "category": "Documentary",
+      "url": "https://blackpublicmedia.org/for-media-makers/bpm-open-call/",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "paused for 2026 (CPB defunding) — confirm next cycle",
+        "status": "verify"
+      }
+    },
+    {
+      "name": "Commitment Grants & Emerging Filmmaker Fellowship",
+      "funder": "Mountainfilm",
+      "category": "Documentary",
+      "url": "https://www.mountainfilm.org/mountainfilm-initiatives/commitment-grants/",
+      "check": "daily",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "2026-07-16 (opens Jul 1)",
+        "status": "opening soon"
+      }
+    },
+    {
+      "name": "JustFilms",
+      "funder": "Ford Foundation",
+      "category": "Documentary",
+      "url": "https://www.fordfoundation.org/work/our-grants/justfilms/justfilms-application/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "Apr (annual ~4-week open call)",
+        "status": "closed-recurring"
+      }
     }
   ]
 }
