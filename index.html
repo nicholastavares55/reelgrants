@@ -69,6 +69,11 @@
   .tag.rolling{background:rgba(31,92,139,.13);color:#1f5c8b}
   .tag.recur{background:#f0ece0;color:#8a8472}
   .count{padding:11px 18px;font-size:13px;color:var(--muted);background:#fbf8f1}
+  .matchcta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px 18px;background:linear-gradient(90deg,rgba(190,138,46,.12),rgba(190,138,46,.05));border-bottom:1px solid #efe9da}
+  .matchcta .txt{font-size:14.5px;font-weight:600;color:var(--ink)}
+  .matchcta .txt b{color:var(--accent-dark)}
+  .matchcta a{background:var(--ink);color:#fff;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;padding:11px 18px;border-radius:999px;white-space:nowrap}
+  .matchcta a:hover{background:var(--accent-dark)}
 
   section.block{padding:60px 0}
   .eyebrow{text-align:center;color:var(--accent-dark);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
@@ -131,6 +136,7 @@
     <div class="preview">
       <div class="bar"><span class="live"></span> Live grant tracker · <span id="season">this season</span> · last verified Jun 2026</div>
       <div class="filters" id="filters"></div>
+      <div class="matchcta" id="matchcta"></div>
       <div class="rows" id="rows"></div>
       <div class="count" id="count"></div>
     </div>
@@ -239,9 +245,24 @@ function render(){
       : `<div class="amt">${g.amt}</div>${tag}`;
     return `<div class="row"><div><div class="name">${g.name}</div><div class="meta">${g.funder} · ${g.cat}${g.status!=="recur"?" · "+g.when:""}</div></div><div class="right">${right}</div></div>`;
   }).join("");
-  const openNow = GRANTS.filter(g=>matches(g)&&(g.status==="open"||g.status==="rolling")).length;
+  const openNow = list.filter(g=>g.status==="open"||g.status==="rolling").length;
+  const soon = list.filter(g=>g.status==="soon").length;
   document.getElementById("count").textContent =
     `${list.length} funds shown · ${openNow} open right now${active!=="All"?` · filtered to ${active}`:""} — members get alerted the moment a matching one opens.`;
+
+  // Personalized conversion CTA — turns the passive tracker into a "see your matches → get alerted" funnel
+  const who = active==="All" ? "you" : (active==="Emerging/Identity-based" ? "emerging filmmakers" : active.toLowerCase()+" filmmakers");
+  const lead = active==="All"
+    ? `<b>${list.length} funds</b> tracked · <b>${openNow}</b> open now${soon?`, <b>${soon}</b> opening soon`:""}.`
+    : `<b>${list.length} match ${who}</b> — <b>${openNow}</b> open now${soon?`, <b>${soon}</b> opening soon`:""}.`;
+  document.getElementById("matchcta").innerHTML =
+    `<span class="txt">${lead} We'll alert you before each deadline.</span>`+
+    `<a href="#join" onclick="presetDiscipline()">${active==="All"?"Match me to grants →":"Alert me about these →"}</a>`;
+}
+function presetDiscipline(){
+  const sel=document.getElementById("discipline-input");
+  if(sel){ const opt=[...sel.options].find(o=>o.value===active); if(opt) sel.value=active; }
+  setTimeout(()=>{const i=document.querySelector('#join input[name="email"]'); if(i) i.focus();},350);
 }
 function buildFilters(){
   const f = document.getElementById("filters");
