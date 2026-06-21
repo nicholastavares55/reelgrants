@@ -3,3 +3,7 @@ out/
 .DS_Store
 __pycache__/
 .env
+
+# Flock runtime artifacts (regenerated each run)
+engine/review_queue.json
+engine/sent_log.json

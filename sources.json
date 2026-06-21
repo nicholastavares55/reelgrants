@@ -1,0 +1,598 @@
+{
+  "_meta": {
+    "purpose": "Trusted-source registry for the ReelGrants Sourcer/Verifier agent. Source of truth = each funder's own page.",
+    "rule": "Never push an unverified date to a subscriber. Low-confidence -> review queue.",
+    "generated": "2026-06-21",
+    "count": 49
+  },
+  "sources": [
+    {
+      "name": "Climate Story Fund",
+      "funder": "Doc Society (Climate Story Unit)",
+      "category": "Documentary",
+      "url": "https://climatestoryunit.org/apply/",
+      "check": "daily",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "2026-07-06",
+        "status": "open"
+      }
+    },
+    {
+      "name": "Slamdance Screenplay Competition",
+      "funder": "Slamdance",
+      "category": "Screenwriting",
+      "url": "https://slamdance.com/screenplay-submit/",
+      "check": "daily",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "2026-08-03 (final)",
+        "status": "open"
+      }
+    },
+    {
+      "name": "Academy Nicholl Fellowships in Screenwriting",
+      "funder": "Academy of Motion Picture Arts and Sciences",
+      "category": "Screenwriting",
+      "url": "https://www.oscars.org/nicholl",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "2026-07-20 (WGF window)",
+        "status": "opening soon"
+      }
+    },
+    {
+      "name": "AFS Grant for Short Films",
+      "funder": "Austin Film Society",
+      "category": "Short Film",
+      "url": "https://www.austinfilm.org/afs-grants/afs-grants-overview/",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "reopens 2026-07-23",
+        "status": "opening soon"
+      }
+    },
+    {
+      "name": "Latino Media Market",
+      "funder": "NALIP",
+      "category": "Emerging/Identity-based",
+      "url": "https://www.nalip.org/LMM.php",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "returns Fall 2026 (verify)",
+        "status": "opening soon"
+      }
+    },
+    {
+      "name": "New Filmmaker Program (Equipment Grant)",
+      "funder": "Panavision",
+      "category": "Production",
+      "url": "https://www.panavision.com/resources/new-filmmaker-program",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "rolling",
+        "status": "rolling"
+      }
+    },
+    {
+      "name": "Roy W. Dean Grant (Spring/Summer/Fall)",
+      "funder": "From the Heart Productions",
+      "category": "Documentary",
+      "url": "https://fromtheheartproductions.com/roy-w-dean-film-grants-and-awards/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "recurring (Mar 31 / Jun 30 / Oct 31)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Documentary Fund",
+      "funder": "Sundance Institute",
+      "category": "Documentary",
+      "url": "https://www.sundance.org/documentary-fund/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~June",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Development Track (Screenwriters Lab)",
+      "funder": "Sundance Institute",
+      "category": "Screenwriting",
+      "url": "https://www.sundance.org/apply/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Fast Track",
+      "funder": "Film Independent",
+      "category": "Production",
+      "url": "https://www.filmindependent.org/programs/applications/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Project Involve",
+      "funder": "Film Independent",
+      "category": "Fellowship/Lab",
+      "url": "https://www.filmindependent.org/programs/applications/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual (verify window)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Research & Development Grant",
+      "funder": "Chicken & Egg Films",
+      "category": "Documentary",
+      "url": "https://chickeneggfilms.org/programs/research-and-development-grant",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~early Feb",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Development Grant",
+      "funder": "Catapult Film Fund",
+      "category": "Documentary",
+      "url": "https://catapultfilmfund.org/how-to-apply/development/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Mar–Apr",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Narrative Labs",
+      "funder": "Stowe Story Labs",
+      "category": "Fellowship/Lab",
+      "url": "https://stowestorylabs.org/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual (labs Jun & Sept)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Short Film Production Grant",
+      "funder": "Stowe Story Labs",
+      "category": "Short Film",
+      "url": "https://stowestorylabs.org/short-film-production-grant",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual (verify)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "SFFILM Rainin Grant",
+      "funder": "SFFILM",
+      "category": "Screenwriting",
+      "url": "https://sffilm.org/rainin-grant/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Pare Lorentz Documentary Fund",
+      "funder": "International Documentary Association",
+      "category": "Documentary",
+      "url": "https://www.documentary.org/parelorentz",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~June",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Creative Capital Award",
+      "funder": "Creative Capital",
+      "category": "General/Creator",
+      "url": "https://creative-capital.org/creative-capital-award/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Apr",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Points North Fellowship",
+      "funder": "Points North Institute",
+      "category": "Documentary",
+      "url": "https://pointsnorthinstitute.org/artist-programs/points-north-fellowship/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Documentary Lab Fellowship",
+      "funder": "Firelight Media",
+      "category": "Emerging/Identity-based",
+      "url": "https://www.firelightmedia.tv/programs/documentary-lab",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~early May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Jerome Hill Artist Fellowship",
+      "funder": "Jerome Foundation",
+      "category": "General/Creator",
+      "url": "https://www.jeromefdn.org/jerome-hill-artist-fellowship",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Jan",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "AT&T Presents: Untold Stories",
+      "funder": "Tribeca Festival / AT&T",
+      "category": "Narrative",
+      "url": "https://tribecafilm.com/attuntoldstories",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Feb",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "360 Incubator+ / PitchBLACK",
+      "funder": "Black Public Media",
+      "category": "Emerging/Identity-based",
+      "url": "https://blackpublicmedia.org/for-media-makers/the-incubator/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual (verify)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Open Call",
+      "funder": "ITVS",
+      "category": "Documentary",
+      "url": "https://itvs.org/funds/open-call/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "recurring (~Jan & Aug)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Film Finishing Fund",
+      "funder": "Women In Film",
+      "category": "Post",
+      "url": "https://womeninfilm.org/programs/film-finishing-fund/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual (verify)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "NYSCA/NYFA Artist Fellowship",
+      "funder": "NYFA / NYSCA",
+      "category": "General/Creator",
+      "url": "https://www.nyfa.org/awards-grants/nysca-nyfa-artist-fellowship/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Jan",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Documentary Development Initiative",
+      "funder": "The Gotham / HBO",
+      "category": "Documentary",
+      "url": "https://thegotham.org/documentary-development-initiative/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual (verify)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "AFS Grant for Feature Films",
+      "funder": "Austin Film Society",
+      "category": "Production",
+      "url": "https://www.austinfilm.org/afs-grants/afs-grants-overview/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Redford Center Grants",
+      "funder": "The Redford Center",
+      "category": "Documentary",
+      "url": "https://www.redfordcenter.org/work/redford-center-grants/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Roy W. Dean Short Film Grant",
+      "funder": "From the Heart Productions",
+      "category": "Short Film",
+      "url": "https://fromtheheartproductions.com/roy-w-dean-short-film-grant/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Apr 30",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "(Egg)celerator Lab",
+      "funder": "Chicken & Egg Films",
+      "category": "Documentary",
+      "url": "https://chickeneggfilms.org/programs/egg-celerator-lab",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual (verify)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Austin Film Festival Screenplay & Teleplay Competition",
+      "funder": "Austin Film Festival",
+      "category": "Screenwriting",
+      "url": "https://filmfreeway.com/AustinFilmFestival",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Apr–May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "AEF Faculty Grant",
+      "funder": "ASIFA-Hollywood Animation Educators Forum",
+      "category": "Animation",
+      "url": "https://animationeducatorsforum.org/grants",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "AEF Student Scholarship",
+      "funder": "ASIFA-Hollywood Animation Educators Forum",
+      "category": "Animation",
+      "url": "https://animationeducatorsforum.org/grants",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual (verify)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Gotham Week Project Market",
+      "funder": "The Gotham",
+      "category": "Development",
+      "url": "https://thegotham.org/gotham-week/project-market/documentaries/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Apr–May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Documentary Producing Lab",
+      "funder": "Film Independent",
+      "category": "Documentary",
+      "url": "https://www.filmindependent.org/programs/applications/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Mar",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "SFFILM Rainin Filmmakers with Disabilities Grant",
+      "funder": "SFFILM",
+      "category": "Emerging/Identity-based",
+      "url": "https://sffilm.org/rainin-grant/",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~July (verify)",
+        "status": "verify"
+      }
+    },
+    {
+      "name": "Diane Weyermann Fellowship",
+      "funder": "Points North Institute",
+      "category": "Documentary",
+      "url": "https://pointsnorthinstitute.org/",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "verify",
+        "status": "verify"
+      }
+    },
+    {
+      "name": "Enterprise Documentary Fund",
+      "funder": "International Documentary Association",
+      "category": "Documentary",
+      "url": "https://www.documentary.org/enterprise/about",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "verify (fund under review)",
+        "status": "verify"
+      }
+    },
+    {
+      "name": "SFFILM Documentary Film Fund",
+      "funder": "SFFILM",
+      "category": "Documentary",
+      "url": "https://sffilm.org/documentary-film-fund/",
+      "check": "daily",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "2026-07-07",
+        "status": "open"
+      }
+    },
+    {
+      "name": "Field of Vision Commission",
+      "funder": "Field of Vision",
+      "category": "Documentary",
+      "url": "https://fieldofvision.org/submit",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "rolling",
+        "status": "rolling"
+      }
+    },
+    {
+      "name": "Logan Nonfiction Program",
+      "funder": "The Logan Nonfiction Program",
+      "category": "Documentary",
+      "url": "https://logannonfiction.org/fellowship/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Feb (spring) + fall session",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "LPB Public Media Content Fund",
+      "funder": "Latino Public Broadcasting",
+      "category": "Emerging/Identity-based",
+      "url": "https://lpbp.org/public-media-content-fund/",
+      "check": "weekly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "returns Fall 2026",
+        "status": "opening soon"
+      }
+    },
+    {
+      "name": "Vision Maker Media Production Fund",
+      "funder": "Vision Maker Media",
+      "category": "Emerging/Identity-based",
+      "url": "https://visionmakermedia.org/fundyourfilm/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual (verify window)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Berkeley Film Foundation Documentary Grant",
+      "funder": "The Berkeley Film Foundation",
+      "category": "Documentary",
+      "url": "https://berkeleyfilmfoundation.org/documentary-grant-program",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Apr (active Mar 16–Apr 13)",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Karen Schmeer Film Editing Fellowship",
+      "funder": "Karen Schmeer FEF",
+      "category": "Post",
+      "url": "http://www.karenschmeer.com/apply",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Apr–May",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "PIC Media Fund",
+      "funder": "Pacific Islanders in Communications",
+      "category": "Emerging/Identity-based",
+      "url": "https://www.piccom.org/pages/media-fund",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Jan",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Sundance Ignite x Adobe Fellowship",
+      "funder": "Sundance Institute",
+      "category": "Emerging/Identity-based",
+      "url": "https://www.sundance.org/initiatives/ignite/",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual ~Feb",
+        "status": "closed-recurring"
+      }
+    },
+    {
+      "name": "Garrett Scott Documentary Development Grant",
+      "funder": "Full Frame / IDA",
+      "category": "Documentary",
+      "url": "https://documentary.org/event/garrett-scott-documentary-development-grant",
+      "check": "monthly",
+      "last_verified": "2026-06-21",
+      "current": {
+        "deadline": "annual",
+        "status": "closed-recurring"
+      }
+    }
+  ]
+}

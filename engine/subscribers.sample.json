@@ -1,0 +1,7 @@
+[
+  {"email": "maya@example.com", "discipline": "Documentary", "region": "California"},
+  {"email": "devon@example.com", "discipline": "Screenwriting", "region": "Texas"},
+  {"email": "sam@example.com", "discipline": "Animation", "region": "New York"},
+  {"email": "rosa@example.com", "discipline": "Emerging/Identity-based", "region": null},
+  {"email": "lee@example.com", "discipline": "Short Film", "region": "Texas"}
+]
