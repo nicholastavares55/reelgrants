@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ReelGrants — Every film grant, matched to you, before the deadline</title>
+<meta name="description" content="ReelGrants tracks every film grant, fellowship, and fund — then alerts you about the ones YOU qualify for before they close. Stop scanning 100 listings and keeping a deadline spreadsheet." />
+<meta property="og:title" content="ReelGrants — film grants, matched to you, before the deadline" />
+<meta property="og:description" content="We watch every film fund so you don't miss the one with your name on it." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ===== Perch design tokens — ReelGrants skin (cinematic amber on warm ink) ===== */
+  :root{
+    --accent:#BE8A2E;          /* festival gold */
+    --accent-dark:#9a6f20;
+    --sand:#F5F1E8;
+    --ink:#16120B;
+    --muted:#6a6253;
+    --card:#ffffff;
+    --radius:18px;
+    --shadow:0 10px 40px rgba(22,18,11,.09);
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--sand);line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.logo{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  a{color:inherit}
+
+  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .logo{font-weight:700;font-size:20px;display:flex;align-items:center;gap:8px}
+  .logo .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(190,138,46,.18)}
+  .nav-cta{background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px}
+
+  .hero{padding:50px 0 30px;text-align:center}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(190,138,46,.12);color:var(--accent-dark);font-weight:600;font-size:13px;padding:7px 14px;border-radius:999px;margin-bottom:22px}
+  .hero h1{font-size:clamp(33px,6vw,56px);line-height:1.05;margin-bottom:18px}
+  .hero h1 .hl{color:var(--accent)}
+  .hero p.sub{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:640px;margin:0 auto 28px}
+
+  .capture{display:flex;gap:10px;max-width:540px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .capture select,.capture input{flex:1;min-width:200px;padding:15px 16px;border:1.5px solid #ded6c4;border-radius:12px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink)}
+  .capture select:focus,.capture input:focus{outline:none;border-color:var(--accent)}
+  .capture button{background:var(--accent);color:#fff;border:none;padding:15px 26px;border-radius:12px;font-weight:700;font-size:16px;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:transform .08s,background .2s;width:100%;max-width:540px;margin-top:2px}
+  .capture button:hover{background:var(--accent-dark);transform:translateY(-1px)}
+  .micro{font-size:13px;color:var(--muted);margin-top:12px}
+
+  /* ===== Tracker preview (the free public surface) ===== */
+  .preview{margin:40px auto 0;max-width:820px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;text-align:left}
+  .preview .bar{background:var(--ink);color:#e6d8b8;padding:12px 18px;font-size:13px;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;gap:8px}
+  .preview .bar .live{width:9px;height:9px;border-radius:50%;background:#54d98b;box-shadow:0 0 0 0 rgba(84,217,139,.6);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(84,217,139,.6)}70%{box-shadow:0 0 0 10px rgba(84,217,139,0)}100%{box-shadow:0 0 0 0 rgba(84,217,139,0)}}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;padding:14px 16px;border-bottom:1px solid #efe9da;background:#fbf8f1}
+  .chip{font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;border:1.5px solid #e2dac8;background:#fff;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif}
+  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .rows{max-height:430px;overflow-y:auto}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid #f0ebdd;font-size:15px}
+  .row:last-child{border-bottom:none}
+  .row .name{font-weight:600;line-height:1.25}
+  .row .meta{color:var(--muted);font-size:13px;margin-top:2px}
+  .row .right{text-align:right;white-space:nowrap}
+  .row .amt{font-weight:700;font-size:14px}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;margin-top:4px;letter-spacing:.02em}
+  .tag.open{background:rgba(84,217,139,.16);color:#1c7a48}
+  .tag.soon{background:rgba(190,138,46,.16);color:#8a6418}
+  .tag.rolling{background:rgba(31,92,139,.13);color:#1f5c8b}
+  .tag.recur{background:#f0ece0;color:#8a8472}
+  .count{padding:11px 18px;font-size:13px;color:var(--muted);background:#fbf8f1}
+
+  section.block{padding:60px 0}
+  .eyebrow{text-align:center;color:var(--accent-dark);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  h2.center{text-align:center;font-size:clamp(25px,4vw,36px);margin-bottom:38px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{background:var(--card);padding:26px 24px;border-radius:var(--radius);box-shadow:var(--shadow)}
+  .step .n{font-family:'Space Grotesk';font-weight:700;color:var(--accent);font-size:14px;margin-bottom:10px}
+  .step h3{font-size:19px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:15px}
+
+  .why{max-width:720px;margin:0 auto;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px 30px}
+  .why h3{font-size:20px;margin-bottom:14px}
+  .why .line{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:15.5px}
+  .why .line:last-child{margin-bottom:0}
+  .why .ck{color:var(--accent);font-weight:700;flex:none}
+  .why .muted{color:var(--muted)}
+
+  .faq{max-width:680px;margin:0 auto}
+  details{background:var(--card);border-radius:14px;padding:18px 22px;margin-bottom:12px;box-shadow:var(--shadow);cursor:pointer}
+  details summary{font-weight:600;font-family:'Space Grotesk';list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:'+';color:var(--accent);font-size:22px}
+  details[open] summary::after{content:'\2013'}
+  details p{color:var(--muted);margin-top:12px;font-size:15px}
+
+  footer{text-align:center;padding:40px 0 56px;color:var(--muted);font-size:14px}
+  footer .logo{justify-content:center;margin-bottom:8px;font-size:16px}
+  @media(max-width:720px){.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="logo"><span class="dot"></span>ReelGrants</div>
+    <a class="nav-cta" href="#join">Get alerts</a>
+  </nav>
+
+  <header class="hero">
+    <div class="pill">🎬 Powered by Perch · 40+ film funds tracked</div>
+    <h1>There's a grant with your name on it.<br><span class="hl">Don't miss the deadline.</span></h1>
+    <p class="sub">ReelGrants watches every film grant, fellowship, and fund — then alerts you about the ones <em>you</em> actually qualify for, before they close. Stop scanning 100 listings and keeping a deadline spreadsheet.</p>
+
+    <form class="capture" id="join" data-capture method="POST">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email" />
+      <select name="discipline" id="discipline-input" aria-label="What do you make?">
+        <option value="">What do you make?</option>
+        <option value="Documentary">Documentary</option>
+        <option value="Narrative">Narrative / fiction</option>
+        <option value="Screenwriting">Screenwriting</option>
+        <option value="Short Film">Short film</option>
+        <option value="Animation">Animation</option>
+        <option value="Emerging/Identity-based">Emerging / first feature</option>
+        <option value="General/Creator">Other creative work</option>
+      </select>
+      <button type="submit">Alert me about grants I qualify for →</button>
+    </form>
+    <p class="micro">Free to join · No card · We only email you about grants that fit + deadlines that matter.</p>
+
+    <!-- Live tracker preview (the free public surface) -->
+    <div class="preview">
+      <div class="bar"><span class="live"></span> Live grant tracker · <span id="season">this season</span> · last verified Jun 2026</div>
+      <div class="filters" id="filters"></div>
+      <div class="rows" id="rows"></div>
+      <div class="count" id="count"></div>
+    </div>
+  </header>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2 class="center">Three steps to never miss a grant</h2>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Tell us what you make</h3><p>Your format, career stage, and where you're based. Takes 30 seconds — it's how we match instead of dumping a giant list on you.</p></div>
+      <div class="step"><div class="n">02</div><h3>We watch every fund 24/7</h3><p>Sundance, Firelight, Catapult, SFFILM, IDA, state arts councils and dozens more — we track when each window opens and re-verify deadlines so you don't get burned by a stale list.</p></div>
+      <div class="step"><div class="n">03</div><h3>You get matched alerts</h3><p>"A grant you qualify for just opened" — plus a nudge at 14, 3, and 1 days before it closes. First to know, on time, every time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="background:#fff">
+  <div class="wrap">
+    <div class="eyebrow">Why not just use the free lists?</div>
+    <h2 class="center">Because the free lists make <em>you</em> do the work</h2>
+    <div class="why">
+      <div class="line"><span class="ck">✓</span><div><strong>They don't know you.</strong> <span class="muted">A 120-grant list still leaves you to figure out which 6 fit your format, stage, and region. We match.</span></div></div>
+      <div class="line"><span class="ck">✓</span><div><strong>They go stale.</strong> <span class="muted">Seasonal lists are outdated within weeks. We re-verify each window and only flag what's actually open.</span></div></div>
+      <div class="line"><span class="ck">✓</span><div><strong>They don't remind you.</strong> <span class="muted">The grant you found in March closes in July — and you forgot. We nudge you before every deadline.</span></div></div>
+      <div class="line"><span class="ck">✓</span><div><strong>One missed deadline = $15k–$50k gone.</strong> <span class="muted">A few dollars a month to never miss the one with your name on it.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap faq">
+    <div class="eyebrow">Questions</div>
+    <h2 class="center">Good to know</h2>
+    <details open><summary>Is the grant info real?</summary><p>Yes — the tracker above is seeded with real, currently-tracked film funds (Sundance, Firelight, Catapult, SFFILM, IDA and more). We show the typical window when a fund is between cycles, and only flag "OPEN NOW" once we've re-verified it. Accuracy is the whole point.</p></details>
+    <details><summary>What does it cost?</summary><p>The public tracker and a weekly "newly opened" email are free. A low monthly plan unlocks personalized matches, per-deadline alerts, saved watches, and text alerts. Join the early list to lock in founding-member pricing.</p></details>
+    <details><summary>Who is this for?</summary><p>Independent filmmakers — documentary, narrative, screenwriting, animation, shorts — and especially emerging and first-feature directors hunting development, production, and finishing funds. A Pro plan is coming for grant consultants and film programs.</p></details>
+    <details><summary>How will I get alerted?</summary><p>Email during early access, with instant text alerts coming for members. Deadlines don't wait, so we build for "the moment it opens," not "next month's roundup."</p></details>
+  </div>
+</section>
+
+<section class="block" style="text-align:center;background:#fff">
+  <div class="wrap">
+    <h2 class="center" style="margin-bottom:16px">Stop hunting. Start applying.</h2>
+    <p class="sub" style="margin:0 auto 24px;color:var(--muted);max-width:540px">Join the early list and we'll alert you about the grants you qualify for — before they close.</p>
+    <form class="capture" data-capture method="POST">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email" />
+      <button type="submit">Alert me →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo"><span class="dot"></span>ReelGrants</div>
+    <div>A Perch product 🛰️ · We watch so you don't miss it.</div>
+    <div style="margin-top:6px;font-size:12px">Independent service · not affiliated with any listed grant, festival, or funder.</div>
+  </div>
+</footer>
+
+<script>
+// Seed = real tracked funds (subset of grants.json). Status drives the tag.
+const GRANTS = [
+  {name:"Climate Story Fund", funder:"Doc Society", cat:"Documentary", amt:"up to $125k", when:"Closes Jul 6", status:"open"},
+  {name:"Slamdance Screenplay Competition", funder:"Slamdance", cat:"Screenwriting", amt:"$18k", when:"Open · final Aug 3", status:"open"},
+  {name:"Academy Nicholl Fellowships", funder:"AMPAS", cat:"Screenwriting", amt:"5 × $35k", when:"Opens late Jun", status:"soon"},
+  {name:"AFS Grant for Short Films", funder:"Austin Film Society", cat:"Short Film", amt:"varies", when:"Reopens Jul 23", status:"soon"},
+  {name:"Latino Media Market", funder:"NALIP", cat:"Emerging/Identity-based", amt:"varies", when:"Returns Fall '26", status:"soon"},
+  {name:"New Filmmaker Program", funder:"Panavision", cat:"Production", amt:"in-kind gear", when:"Rolling · always open", status:"rolling"},
+  {name:"Roy W. Dean Grant", funder:"From the Heart", cat:"Documentary", amt:"~$3.5k + services", when:"Next: Jun 30", status:"rolling"},
+  {name:"Documentary Fund", funder:"Sundance Institute", cat:"Documentary", amt:"varies (large)", when:"Opens ~June", status:"recur"},
+  {name:"Development Grant", funder:"Catapult Film Fund", cat:"Documentary", amt:"up to $25k", when:"Opens ~March", status:"recur"},
+  {name:"Documentary Lab Fellowship", funder:"Firelight Media", cat:"Emerging/Identity-based", amt:"$25k + mentorship", when:"Opens ~April", status:"recur"},
+  {name:"SFFILM Rainin Grant", funder:"SFFILM", cat:"Screenwriting", amt:"up to $25k", when:"Opens ~May", status:"recur"},
+  {name:"Creative Capital Award", funder:"Creative Capital", cat:"General/Creator", amt:"$15k–$50k", when:"Opens ~April", status:"recur"},
+  {name:"AT&T Untold Stories", funder:"Tribeca", cat:"Narrative", amt:"$1.2M top prize", when:"Opens ~Feb", status:"recur"},
+  {name:"Pare Lorentz Doc Fund", funder:"IDA", cat:"Documentary", amt:"$15k–$25k", when:"Opens ~June", status:"recur"},
+  {name:"Film Finishing Fund", funder:"Women In Film", cat:"Post", amt:"up to $25k", when:"Annual", status:"recur"},
+  {name:"Jerome Hill Artist Fellowship", funder:"Jerome Foundation", cat:"General/Creator", amt:"$60k / 3 yrs", when:"Opens ~Jan", status:"recur"},
+  {name:"Project Involve", funder:"Film Independent", cat:"Emerging/Identity-based", amt:"fellowship", when:"Annual", status:"recur"},
+  {name:"Redford Center Grants", funder:"Redford Center", cat:"Documentary", amt:"$40k + support", when:"Opens ~May", status:"recur"},
+  {name:"Doc Development Initiative", funder:"The Gotham / HBO", cat:"Documentary", amt:"$50k", when:"Annual", status:"recur"},
+  {name:"AEF Student Scholarship", funder:"ASIFA-Hollywood", cat:"Animation", amt:"$2.5k–$5k", when:"Annual", status:"recur"}
+];
+const FILTERS = ["All","Documentary","Narrative","Screenwriting","Short Film","Animation","Emerging/Identity-based"];
+const TAG = {open:["open","OPEN NOW"], soon:["soon","OPENS SOON"], rolling:["rolling","ROLLING"], recur:["recur",""]};
+let active = "All";
+
+function matches(g){
+  if(active==="All") return true;
+  if(active==="Emerging/Identity-based") return g.cat==="Emerging/Identity-based";
+  return g.cat===active;
+}
+function render(){
+  const rows = document.getElementById("rows");
+  const list = GRANTS.filter(matches).sort((a,b)=>{
+    const order={open:0,soon:1,rolling:2,recur:3};
+    return order[a.status]-order[b.status];
+  });
+  rows.innerHTML = list.map(g=>{
+    const [cls,label] = TAG[g.status];
+    const tag = label ? `<span class="tag ${cls}">${label}</span>` : `<span class="tag recur">${g.when}</span>`;
+    const right = (g.status==="recur")
+      ? `<div class="amt">${g.amt}</div>${tag}`
+      : `<div class="amt">${g.amt}</div>${tag}`;
+    return `<div class="row"><div><div class="name">${g.name}</div><div class="meta">${g.funder} · ${g.cat}${g.status!=="recur"?" · "+g.when:""}</div></div><div class="right">${right}</div></div>`;
+  }).join("");
+  const openNow = GRANTS.filter(g=>matches(g)&&(g.status==="open"||g.status==="rolling")).length;
+  document.getElementById("count").textContent =
+    `${list.length} funds shown · ${openNow} open right now${active!=="All"?` · filtered to ${active}`:""} — members get alerted the moment a matching one opens.`;
+}
+function buildFilters(){
+  const f = document.getElementById("filters");
+  f.innerHTML = FILTERS.map(x=>`<button class="chip${x===active?" active":""}" data-f="${x}">${x==="Emerging/Identity-based"?"Emerging / 1st feature":x}</button>`).join("");
+  f.querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{
+    active=c.dataset.f;
+    const sel=document.getElementById("discipline-input");
+    if(sel){ const opt=[...sel.options].find(o=>o.value===active); sel.value = opt?active:""; }
+    buildFilters(); render();
+  }));
+}
+buildFilters(); render();
+
+// ===== Signup capture — paste your NEW (separate) Supabase project values here =====
+const SUPABASE_URL = "";        // e.g. https://abcd1234.supabase.co
+const SUPABASE_ANON_KEY = "";   // the new project's anon / publishable key
+// =================================================================================
+document.querySelectorAll('form[data-capture]').forEach(form=>{
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const emailEl = form.querySelector('input[name="email"]');
+    const email = emailEl ? emailEl.value.trim() : "";
+    const disc = form.querySelector('select[name="discipline"]');
+    const discipline = disc ? disc.value : "";
+    if(!email) return;
+    const btn = form.querySelector('button'); const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = "Adding you…";
+    const done = (msg)=>{ form.innerHTML =
+      '<div style="padding:15px 18px;background:rgba(84,217,139,.14);color:#1c7a48;border-radius:12px;font-weight:600;width:100%;text-align:center">'+msg+'</div>'; };
+    const fail = ()=>{ btn.disabled=false; btn.textContent=orig; alert("Hmm, that didn't go through — try again in a moment."); };
+    try{
+      if(SUPABASE_URL && SUPABASE_ANON_KEY){
+        const r = await fetch(SUPABASE_URL.replace(/\/$/,'')+"/rest/v1/signups",{
+          method:"POST",
+          headers:{"apikey":SUPABASE_ANON_KEY,"Authorization":"Bearer "+SUPABASE_ANON_KEY,
+                   "Content-Type":"application/json","Prefer":"return=minimal"},
+          body:JSON.stringify({email, discipline, source:location.hostname})
+        });
+        if(r.ok || r.status===409){ done("✓ You're on the list. We'll email you the moment a matching grant opens."); }
+        else { fail(); }
+      } else {
+        console.warn("ReelGrants: capture backend not wired yet (SUPABASE_URL/ANON_KEY empty).");
+        done("✓ You're on the list. We'll be in touch about matching grants.");
+      }
+    }catch(err){ fail(); }
+  });
+});
+</script>
+</body>
+</html>
