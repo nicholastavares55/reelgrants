@@ -189,6 +189,8 @@
     section.block{padding:60px 0}
   }
   @media(max-width:560px){
+    .brk{display:none}
+    .hero h1{word-break:break-word}
     .capture{flex-direction:column}
     .capture input,.capture select,.capture button{min-width:0;width:100%;flex:none}
     .row{gap:10px;padding:14px 16px}
@@ -213,7 +215,7 @@
   <div class="wrap">
     <header class="hero">
       <div class="laurel reveal d1"><span class="live"></span> <span id="laurel-count">Live</span> · film funds tracked</div>
-      <h1 class="reveal d2">There's a grant<br>with <em>your name</em> on it.</h1>
+      <h1 class="reveal d2">There's a grant<br class="brk">with <em>your name</em> on it.</h1>
       <p class="sub reveal d3">ReelGrants watches every film grant, fellowship, and fund — then alerts you about the ones <em>you</em> actually qualify for, before they close. No more spreadsheets. No more "I found out too late."</p>
 
       <form class="capture reveal d4" id="join" data-capture method="POST">
