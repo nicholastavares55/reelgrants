@@ -498,6 +498,18 @@ document.querySelectorAll('form[data-capture]').forEach(form=>{
     }catch(err){fail();}
   });
 });
+
+/* ===== Pageview ping — fire-and-forget, isolated, can never block render or the form ===== */
+try{
+  if(SUPABASE_URL && SUPABASE_ANON_KEY){
+    fetch(SUPABASE_URL.replace(/\/$/,'')+"/rest/v1/pageviews",{
+      method:"POST",
+      headers:{"apikey":SUPABASE_ANON_KEY,"Authorization":"Bearer "+SUPABASE_ANON_KEY,
+               "Content-Type":"application/json","Prefer":"return=minimal"},
+      body:JSON.stringify({path:location.pathname,referrer:(document.referrer||null),source:location.hostname})
+    }).catch(function(){});  // table may not exist yet → silently ignore, page unaffected
+  }
+}catch(e){}
 </script>
 </body>
 </html>

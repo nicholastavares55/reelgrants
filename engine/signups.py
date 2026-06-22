@@ -9,7 +9,7 @@ engine live.
 
     python3 signups.py
 """
-import os, json, ssl, urllib.request
+import os, json, ssl, urllib.request, urllib.error
 from collections import Counter
 from pathlib import Path
 
@@ -35,15 +35,32 @@ def _env():
     return env
 
 
-def fetch():
+def _get(path):
     e = _env()
-    url = e["SUPABASE_URL"].rstrip("/") + "/rest/v1/signups?select=email,discipline,source,created_at&order=created_at.desc"
+    url = e["SUPABASE_URL"].rstrip("/") + "/rest/v1/" + path
     req = urllib.request.Request(url, headers={
         "apikey": e["SUPABASE_SERVICE_KEY"],
         "Authorization": "Bearer " + e["SUPABASE_SERVICE_KEY"],
+        "Prefer": "count=exact",
     })
     with urllib.request.urlopen(req, context=_SSL, timeout=30) as r:
-        return json.loads(r.read())
+        return json.loads(r.read()), r.headers
+
+
+def fetch():
+    rows, _ = _get("signups?select=email,discipline,source,created_at&order=created_at.desc")
+    return rows
+
+
+def fetch_pageviews():
+    """Returns (total_views, by_source dict) or None if the table doesn't exist yet."""
+    try:
+        rows, hdrs = _get("pageviews?select=source,referrer,created_at")
+    except urllib.error.HTTPError as err:
+        if err.code == 404:
+            return None
+        raise
+    return rows
 
 
 def main():
@@ -52,6 +69,18 @@ def main():
     bar = "█" * min(n, GATE) + "·" * max(0, GATE - n)
     print(f"\n  ReelGrants signups: {n}")
     print(f"  [{bar}] {n}/{GATE} to validation gate")
+
+    pv = fetch_pageviews()
+    if pv is None:
+        print("  (pageviews: table not set up yet — run the SQL snippet to enable)")
+    else:
+        views = len(pv)
+        rate = f"{100*n/views:.1f}%" if views else "—"
+        print(f"  pageviews: {views}   |   signup conversion: {rate}")
+        if views:
+            from collections import Counter as _C
+            top = _C((r.get("source") or "?") for r in pv).most_common(4)
+            print("  views by source: " + ", ".join(f"{k}:{v}" for k, v in top))
     if n >= GATE:
         print("  ✅ GATE CLEARED — time to flip the engine live.")
     elif n:
