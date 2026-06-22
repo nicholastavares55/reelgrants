@@ -31,7 +31,7 @@
     --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{
     font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--cream);
     background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;
@@ -190,12 +190,35 @@
   }
   @media(max-width:560px){
     .brk{display:none}
-    .hero h1{word-break:break-word}
+    .hero{padding:30px 0 26px}
+    .hero h1{font-size:clamp(26px,6.9vw,44px);overflow-wrap:break-word;hyphens:none}
+    .hero p.sub{font-size:15px;margin-bottom:26px}
+    .laurel{letter-spacing:.1em;font-size:10.5px;padding:7px 13px;max-width:100%}
     .capture{flex-direction:column}
     .capture input,.capture select,.capture button{min-width:0;width:100%;flex:none}
-    .row{gap:10px;padding:14px 16px}
-    .row .right .amt{font-size:12.5px}
-    .prog-head{padding:14px 16px}.filters{padding:4px 16px 14px}
+
+    /* tracker rows stack vertically so long award text never clips */
+    .row{flex-direction:column;align-items:flex-start;gap:7px;padding:15px 16px}
+    .row .body{width:100%}
+    .row .name{font-size:15px}
+    .row .right{width:100%;text-align:left;white-space:normal;margin-top:1px;
+      display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 11px}
+    .row .right br{display:none}
+    .row .amt{font-size:13px}
+    .row .tag{margin-top:0}
+
+    .prog-head{padding:14px 16px}
+    .prog-head .title{font-size:16px}
+    .filters{padding:4px 16px 14px}
+    .matchcta{padding:13px 16px}
+    .matchcta .txt{font-size:13px}
+    .why .line{padding:20px 18px}
+    .why .muted{font-size:14px}
+    details{padding:18px 18px}
+    .closer .sub{font-size:15.5px}
+    h2.center{font-size:clamp(22px,5.5vw,44px);margin-bottom:34px;text-wrap:balance}
+    .closer h2{font-size:clamp(24px,6.2vw,52px);text-wrap:balance}
+    section.block{padding:54px 0}
   }
 </style>
 </head>
